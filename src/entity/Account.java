@@ -7,7 +7,7 @@ abstract public class Account {
     private String cardNumber;
     private String accountNumber;
     private int cvv2;
-    private Date creationAccountDate;
+    private LocalDate creationAccountDate;
     private double balance;
     private User user;
     private DataType dataType;
@@ -20,9 +20,13 @@ abstract public class Account {
         this.cardNumber = cardNumber;
         this.cvv2 = cvv2;
         this.accountNumber = accountNumber;
-        this.creationAccountDate = creationAccountDate;//todo
+        this.creationAccountDate =java.time.LocalDate.now();
         this.balance = balance;
         this.user = user;
+    }
+
+    public void setCreationAccountDate(LocalDate creationAccountDate) {
+        this.creationAccountDate = creationAccountDate;
     }
 
     public String getCardNumber() {
@@ -54,13 +58,10 @@ abstract public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public Date getCreationAccountDate() {
+    public LocalDate getCreationAccountDate(LocalDate now) {
         return creationAccountDate;
     }
 
-    public void setCreationAccountDate(LocalDate creationAccountDate) {
-        this.creationAccountDate = creationAccountDate;
-    }
 
     public double getBalance() {
         return balance;
